@@ -117,13 +117,13 @@ int main(void) {
   // TESTING
   // chThdCreateStatic(waBlinkerThread, sizeof(waBlinkerThread), NORMALPRIO, blinkerThread, NULL);
 
-  hook_early_init();
-
   /* Init USB */
   init_usb_driver(&USB_DRIVER);
 
   /* init printf */
   init_printf(NULL,sendchar_pf);
+
+  hook_early_init();
 
   host_driver_t* driver = hook_keyboard_connect(&chibios_driver);
 
